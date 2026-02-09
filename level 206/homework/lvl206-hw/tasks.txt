@@ -1,0 +1,4 @@
+demetre,classwork,done
+demetre,go to shop,active
+demetre,asdasdasd,active
+demetre,zangebi,active

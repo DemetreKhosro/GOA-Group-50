@@ -26,7 +26,15 @@ class AnalyzeText:
   # კითხვითი წინადადებების დათვლა
   def count_questions(self):
     return self.content.count('?')
+  
+  def write_text(self, new_text):
+    try:
+      with open(self.filename, 'w', encoding='utf-8') as f:
+        f.write(new_text)
+    except FileNotFoundError:
+      print('file not found')
 
 analysis = AnalyzeText('level 207/homework/text.txt')
+analysis.write_text('This is a new sentence. Is this a question?\n')
 print(f"თხრობითი წინადადებები: {analysis.count_narrative()}")
 print(f"კითხვითი წინადადებები: {analysis.count_questions()}")

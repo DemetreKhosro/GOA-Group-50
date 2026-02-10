@@ -34,7 +34,25 @@ class AnalyzeText:
     except FileNotFoundError:
       print('file not found')
 
+  def find_palinromes(self):
+    palindromes = []
+    words = self.content.split()
+
+    for word in words:
+      word = word.strip().strip('.?').lower()
+      if len(word) <= 2:
+        continue
+      elif word == word[::-1]:
+        palindromes.append(word)
+    return palindromes
+
+
+print()
+
 analysis = AnalyzeText('level 207/homework/text.txt')
-analysis.write_text('This is a new sentence. Is this a question?\n')
+analysis.write_text('This is a new sentence... Is this a question? racecar. rogor?\n')
 print(f"თხრობითი წინადადებები: {analysis.count_narrative()}")
 print(f"კითხვითი წინადადებები: {analysis.count_questions()}")
+print(f"პალინდრომები: {analysis.find_palinromes()}")
+
+print()
